@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#fff7f1" />
+  <title>רבקה, עוד רגע אנחנו מתחתנים</title>
+  <meta name="description" content="שמונה בקרים קטנים בדרך ליום הגדול שלנו" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='%23d88b9b' d='M32 54S6 38 6 19C6 7 21 5 32 18 43 5 58 7 58 19c0 19-26 35-26 35Z'/%3E%3Cpath fill='%23fff7f1' d='M20 20h24v26H20z' rx='4'/%3E%3C/svg%3E" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap');
+    :root { --wine:#85475a; --rose:#d98ea1; --blush:#fff1f2; --gold:#bf954e; --ink:#3d2a31; --paper:rgba(255,255,255,.82); }
+    * { box-sizing:border-box } body { margin:0; min-height:100vh; color:var(--ink); font-family:Heebo,Arial,sans-serif; background:#fff9f3 url('floral-background.png') center/cover fixed; }
+    button { font:inherit } .veil { min-height:100vh; padding:34px 18px 44px; background:linear-gradient(180deg,rgba(255,250,246,.2),rgba(255,250,246,.56)); }
+    main { max-width:1060px; margin:auto; text-align:center; } .eyebrow { color:var(--gold); font-size:.82rem; font-weight:800; letter-spacing:.14em; margin:0 0 8px; }
+    h1 { font-family:'Playfair Display',Heebo,serif; font-size:clamp(2.25rem,7vw,4.7rem); margin:0; color:var(--wine); line-height:1.05; } h1 .heart { color:var(--rose); font-family:Arial; font-size:.7em; }
+    .intro { font-size:1.08rem; margin:14px auto 20px; max-width:550px; line-height:1.65; } .date-pill { display:inline-flex; gap:8px; align-items:center; padding:8px 15px; background:var(--paper); border:1px solid rgba(191,149,78,.4); color:#795c29; border-radius:999px; box-shadow:0 5px 18px rgba(118,72,55,.08); }
+    .days { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-top:32px; } .day { position:relative; min-height:205px; border:0; border-radius:22px; padding:16px 10px; cursor:pointer; color:var(--ink); background:var(--paper); box-shadow:0 12px 30px rgba(110,62,70,.12), inset 0 0 0 1px rgba(255,255,255,.8); overflow:hidden; transition:transform .25s, box-shadow .25s; }
+    .day:not(:disabled):hover { transform:translateY(-5px); box-shadow:0 18px 36px rgba(110,62,70,.2); }.day:focus-visible{outline:3px solid var(--gold);outline-offset:4px}.day:disabled{cursor:not-allowed}
+    .day.wedding { background:linear-gradient(145deg,#fff7e9,#ffe9ef); border:1px solid rgba(191,149,78,.42); } .day.wedding .day-number { color:var(--gold); }
+    .weekday { color:#966174; font-weight:700; font-size:.93rem; }.day-number{display:block;font-family:'Playfair Display',serif;font-size:3.1rem;line-height:1;color:var(--wine);margin:7px 0 1px}.month{font-size:.84rem;color:#876d74}.occasion{min-height:24px;margin-top:10px;font-size:.82rem;color:var(--gold);font-weight:800}
+    .lock-wrap { position:absolute; inset:0; display:grid; place-items:center; background:rgba(255,247,248,.76); transition:opacity .5s,transform .5s; }.lock-wrap.open { opacity:0; transform:scale(1.18); pointer-events:none; }.chain { position:absolute; width:156px; height:82px; border:8px dashed #9e7b5b; border-radius:50%; transform:rotate(-9deg); opacity:.92; }.lock { z-index:1; width:62px; height:53px; border-radius:9px; background:linear-gradient(135deg,#d9bc72,#9c773d); color:#fffaf0; display:grid; place-items:center; font-size:1.55rem; box-shadow:0 5px 0 #795b2d,0 11px 18px rgba(66,42,23,.25); }.lock::before { content:''; position:absolute; width:32px;height:28px; border:7px solid #b08a4b; border-bottom:0; border-radius:18px 18px 0 0; transform:translateY(-34px); }.lock span { position:relative; z-index:2; }
+    .open-note { margin:27px auto 0; min-height:26px; font-size:.96rem; color:#745762; }.preview { margin-top:16px; background:none; border:0; text-decoration:underline; color:#9b7381; cursor:pointer; font-size:.82rem; }
+    dialog { width:min(680px,calc(100% - 30px)); max-height:88vh; border:0; border-radius:28px; padding:0; color:var(--ink); background:#fffdf9; box-shadow:0 25px 80px rgba(68,35,46,.35); } dialog::backdrop { background:rgba(68,35,46,.36); backdrop-filter:blur(4px) } .letter { padding:clamp(27px,6vw,55px); text-align:right; background:linear-gradient(135deg,rgba(255,241,242,.7),transparent 60%); }.close { float:left; border:0; border-radius:50%; width:38px;height:38px;background:#f7e3e7;color:var(--wine);font-size:1.5rem;cursor:pointer }.letter .letter-date { color:var(--gold);font-weight:800 }.letter h2 { font-family:'Playfair Display',Heebo,serif;color:var(--wine);font-size:clamp(2rem,5vw,3rem);margin:16px 0 11px }.letter p { white-space:pre-line;font-size:1.12rem;line-height:1.9;margin:0 }.mission { margin-top:24px;padding:15px 18px;border-radius:15px;background:#fff4e7;border-right:4px solid var(--gold);line-height:1.7 }.mission strong{color:#9a6c27}.signature{margin-top:25px;color:var(--wine);font-family:'Playfair Display',Heebo,serif;font-style:italic;font-size:1.25rem}
+    @media(max-width:680px){.veil{padding:27px 12px 34px}.days{grid-template-columns:repeat(2,1fr);gap:12px;margin-top:25px}.day{min-height:181px}.chain{width:128px}.intro{font-size:1rem}.day-number{font-size:2.7rem}}
+  </style>
+</head>
+<body>
+  <div class="veil"><main>
+    <p class="eyebrow">FOR REBECCA · WITH ALL MY HEART</p>
+    <h1>רבקה, עוד רגע <span class="heart">♥</span><br>אנחנו מתחתנים</h1>
+    <p class="intro">שמונה בקרים קטנים. שמונה הפתעות. ורגע אחד גדול שמתחיל בדיוק עכשיו.</p>
+    <div class="date-pill">✦ 12–19 באוקטובר 2026 ✦</div>
+    <section class="days" id="days" aria-label="ימי הספירה לאחור"></section>
+    <p class="open-note" id="status" aria-live="polite"></p>
+    <button class="preview" id="previewButton" type="button">תצוגה מקדימה לבעל האתר</button>
+  </main></div>
+  <dialog id="letterDialog"><article class="letter"><button class="close" id="closeDialog" aria-label="סגירה">×</button><div class="letter-date" id="letterDate"></div><h2 id="letterTitle"></h2><p id="letterText"></p><div class="mission" id="mission"></div><div class="signature">שלך, תמיד ♥</div></article></dialog>
+  <script>
+    // החליפו כאן בקלות את הטקסט והמשימה של כל יום. אפשר להוסיף גם תמונות בעתיד.
+    const DAYS = [
+      ['יום שני',12,'פתיחה ראשונה','אהובה שלי, מתחילים את השבוע שלנו. היום אני רוצה שתזכרי כמה הדרך אלייך הייתה הדבר הכי יפה שקרה לי.\n\nקחי נשימה עמוקה — אנחנו ממש כאן.', 'משימה קטנה: כתבי לי הודעה עם שלושה דברים שאת הכי מתרגשת מהם השבוע.'],
+      ['יום שלישי',13,'הסיפור שלנו','רבקה, יש לנו כבר כל כך הרבה רגעים קטנים שהם רק שלנו. היום תני לעצמך לחייך אל אחד מהם — ואני מבטיח לשמור על כל השאר.','משימה קטנה: בחרי תמונה אחת שלנו שאת אוהבת במיוחד ושלחי לי אותה.'],
+      ['יום רביעי',14,'באמצע הדרך','הימים רצים, אבל אני רוצה שנזכור גם לעצור. אני לא מתרגש רק מהחתונה — אני מתרגש מהחיים שמחכים לנו אחריה.','משימה קטנה: פנקי את עצמך היום במשהו קטן ומתוק. זה צו.'],
+      ['יום חמישי',15,'חיוך אחד גדול','אם היום לחוץ או עמוס, תזכרי שיש בצד השני של כל הסידורים מישהו שמחכה להיות בעלך. כן, אני עדיין מתרגש מלכתוב את זה.','משימה קטנה: מצאי חמש דקות לשיר בקול שיר שעושה לך טוב.'],
+      ['יום שישי',16,'שבת של אהבה','עוד רגע שבת, עוד רגע אנחנו. תודה שאת הופכת כל מקום לבית ואת כל חלום למשהו שאפשר להאמין בו.','משימה קטנה: כתבי לעצמך פתק קטן עם דבר שאת אוהבת בך.'],
+      ['שבת',17,'רק אנחנו','בתוך כל ההתרגשות, זו התזכורת הכי חשובה: אנחנו צוות. צוחקים, מתרגשים, ולפעמים גם מאבדים דברים — אבל תמיד יחד.','משימה קטנה: קחי רגע שקט, עצמי עיניים ודמייני את המפגש שלנו מתחת לחופה.'],
+      ['יום ראשון',18,'הלילה שלפני','מחר זה קורה, אהובה שלי. הלב שלי מלא בהכרת תודה עלייך, עלינו, ועל כל מי שמגיע לשמוח איתנו. תנסי לנוח — מחר נהפוך למשפחה.','משימה קטנה: לכי לישון מוקדם ככל שאפשר. מחר מחכה לך יום בלתי נשכח.'],
+      ['יום שני',19,'היום שלנו!','רבקה שלי, זה היום שלנו. בעוד כמה שעות אראה אותך, ואבחר בך מול כל העולם — בדיוק כפי שאני בוחר בך בכל יום מחדש.\n\nאני אוהב אותך. בואי נתחתן!','משימה קטנה: חייכי לעצמך במראה. הכלה הכי יפה בעולם מחכה לך שם.']
+    ];
+    const daysEl=document.getElementById('days'),statusEl=document.getElementById('status'),dialog=document.getElementById('letterDialog');
+    let preview=false;
+    const israelTime=()=>new Date(new Date().toLocaleString('en-US',{timeZone:'Asia/Jerusalem'}));
+    function unlockTime(day){ return new Date(2026,9,day,10,0,0); }
+    function available(day){ return preview || israelTime() >= unlockTime(day); }
+    function showLetter(i){const d=DAYS[i]; document.getElementById('letterDate').textContent=`${d[0]} · ${d[1]} באוקטובר`;document.getElementById('letterTitle').textContent=d[2];document.getElementById('letterText').textContent=d[3];document.getElementById('mission').innerHTML=`<strong>✦ ${d[4].split(':')[0]}:</strong>${d[4].split(':').slice(1).join(':')}`;dialog.showModal()}
+    function render(){ const now=israelTime();daysEl.innerHTML=''; let next=null; DAYS.forEach((d,i)=>{const open=available(d[1]); if(!open&&!next)next=unlockTime(d[1]);const card=document.createElement('button');card.className='day'+(d[1]===19?' wedding':'');card.disabled=!open;card.setAttribute('aria-label',open?`פתיחת ${d[0]}, ${d[1]} באוקטובר`:`נעול עד ${d[1]} באוקטובר ב-10:00`);card.innerHTML=`<span class="weekday">${d[0]}</span><span class="day-number">${d[1]}</span><span class="month">באוקטובר</span><span class="occasion">${d[1]===19?'✦ יום החתונה ✦':''}</span>${open?'':`<span class="lock-wrap"><span class="chain"></span><span class="lock"><span>🔒</span></span></span>`}`;if(open)card.addEventListener('click',()=>showLetter(i));daysEl.appendChild(card); });
+      if(preview)statusEl.textContent='מצב תצוגה מקדימה פעיל — כל הימים פתוחים רק אצלך.';else if(next){const diff=next-now;const hours=Math.max(0,Math.floor(diff/36e5)),mins=Math.max(0,Math.floor((diff%36e5)/6e4));statusEl.textContent=`ההפתעה הבאה תיפתח בעוד ${hours} שעות ו־${mins} דקות, בשעה 10:00.`}else statusEl.textContent='כל ההפתעות כבר פתוחות. איזה שבוע היה לנו ♥'; }
+    document.getElementById('previewButton').addEventListener('click',()=>{preview=!preview;document.getElementById('previewButton').textContent=preview?'חזרה למצב האמיתי':'תצוגה מקדימה לבעל האתר';render()});document.getElementById('closeDialog').addEventListener('click',()=>dialog.close()); dialog.addEventListener('click',e=>{if(e.target===dialog)dialog.close()});render();setInterval(render,60000);
+  </script>
+</body></html>
