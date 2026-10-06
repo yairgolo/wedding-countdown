@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#fff7f1" />
   <title>רבקה, עוד רגע אנחנו מתחתנים</title>
-  <meta name="description" content="שמונה בקרים קטנים בדרך ליום הגדול שלנו" />
+  <meta name="description" content="שבעה בקרים קטנים בדרך ליום הגדול שלנו" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='%23d88b9b' d='M32 54S6 38 6 19C6 7 21 5 32 18 43 5 58 7 58 19c0 19-26 35-26 35Z'/%3E%3Cpath fill='%23fff7f1' d='M20 20h24v26H20z' rx='4'/%3E%3C/svg%3E" />
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800&family=Frank+Ruhl+Libre:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap');
@@ -40,6 +40,7 @@
     @keyframes unlock{0%{transform:rotate(-5deg)}35%{transform:rotate(10deg) scale(1.1)}100%{transform:translateY(35px) rotate(-15deg);opacity:0}}
     @media(max-width:680px){.veil{padding:22px 18px 35px}h1{font-size:2.9rem}.eyebrow{font-size:.72rem}.days{gap:12px}.day{min-height:224px;padding:15px 12px}.lock-art{width:70px;height:85px}.day-number{font-size:1.9rem}.weekday{font-size:.82rem}.day-caption{font-size:1.18rem}.occasion{font-size:.8rem}.board-heading{padding-top:21px}.board-heading h2{font-size:1.45rem}.board-heading span{font-size:.8rem}.letter{padding:25px 22px}.letter p{font-size:1.23rem}.letter h2{font-size:2.2rem}.countdown{gap:20px;margin-top:23px}}
     @media(max-width:350px){.veil{padding-inline:12px}h1{font-size:2.5rem}.day{padding-inline:9px}.weekday{font-size:.76rem}}
+    @media(max-width:680px){.days{grid-template-columns:minmax(0,1fr)}}
     @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
   </style>
 </head>
@@ -50,17 +51,16 @@
     <p class="intro">שבוע של הפתעות קטנות,<br>בדרך לרגע הכי גדול שלנו.</p>
     <div class="date-pill">יום שני · 19 באוקטובר 2026</div>
     <div class="countdown" aria-label="הזמן עד בוקר החתונה"><div class="time-unit"><b id="timerMinutes">00</b><span>דקות</span></div><span class="time-dot">:</span><div class="time-unit"><b id="timerHours">00</b><span>שעות</span></div><span class="time-dot">:</span><div class="time-unit"><b id="timerDays">00</b><span>ימים</span></div></div>
-    <div class="board-heading"><h2>כל יום, קצת יותר קרובים</h2><span>12–19 באוקטובר</span></div>
+    <div class="board-heading"><h2>כל יום, קצת יותר קרובים</h2><span>13–19 באוקטובר</span></div>
     <section class="days" id="days" aria-label="ימי הספירה לאחור"></section>
     <p class="open-note" id="status" aria-live="polite"></p>
-    <div class="footer-heart" aria-hidden="true">♡</div><div class="footer-copy">שמונה בקרים. אהבה אחת.</div>
+    <div class="footer-heart" aria-hidden="true">♡</div><div class="footer-copy">שבעה בקרים. אהבה אחת.</div>
     <button class="preview" id="previewButton" type="button" hidden>תצוגה מקדימה</button>
   </main></div>
   <dialog id="letterDialog"><article class="letter"><button class="close" id="closeDialog" aria-label="סגירה">×</button><div class="letter-date" id="letterDate"></div><h2 id="letterTitle"></h2><div class="memory" id="memory"></div><p id="letterText"></p><div class="mission" id="mission"></div><div class="signature">שלך, תמיד ♥</div></article></dialog>
   <script>
     // החליפו כאן בקלות את הטקסט והמשימה של כל יום. אפשר להוסיף גם תמונות בעתיד.
     const DAYS = [
-      ['יום שני',12,'פתיחה ראשונה','אהובה שלי, מתחילים את השבוע שלנו. היום אני רוצה שתזכרי כמה הדרך אלייך הייתה הדבר הכי יפה שקרה לי.\n\nקחי נשימה עמוקה — אנחנו ממש כאן.', 'משימה קטנה: כתבי לי הודעה עם שלושה דברים שאת הכי מתרגשת מהם השבוע.', {type:'photo',src:'',hint:'כאן תכניס תמונה מרגע שמזכיר לך את תחילת הסיפור שלכם'}],
       ['יום שלישי',13,'הסיפור שלנו','רבקה, יש לנו כבר כל כך הרבה רגעים קטנים שהם רק שלנו. היום תני לעצמך לחייך אל אחד מהם — ואני מבטיח לשמור על כל השאר.','משימה קטנה: בחרי תמונה אחת שלנו שאת אוהבת במיוחד ושלחי לי אותה.', {type:'song',url:'',hint:'כאן אפשר לשים קישור לשיר שהוא רק שלכם'}],
       ['יום רביעי',14,'באמצע הדרך','הימים רצים, אבל אני רוצה שנזכור גם לעצור. אני לא מתרגש רק מהחתונה — אני מתרגש מהחיים שמחכים לנו אחריה.','משימה קטנה: פנקי את עצמך היום במשהו קטן ומתוק. זה צו.', {type:'video',src:'',hint:'כאן תוכל להוסיף סרטון קצר, ברכה מצולמת או רגע מצחיק'}],
       ['יום חמישי',15,'חיוך אחד גדול','אם היום לחוץ או עמוס, תזכרי שיש בצד השני של כל הסידורים מישהו שמחכה להיות בעלך. כן, אני עדיין מתרגש מלכתוב את זה.','משימה קטנה: מצאי חמש דקות לשיר בקול שיר שעושה לך טוב.', {type:'photo',src:'',hint:'כאן תיכנס תמונה שגורמת לה לחייך'}],
